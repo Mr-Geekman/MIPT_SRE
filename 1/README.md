@@ -11,6 +11,8 @@ ssh sre-course -L 8080:127.0.0.1:8080
 
 Тогда на `localhost:8080` вы сможете увидеть работающий Oncall.
 
+Для настройки файрвола была использована утилита ufw, [туториал](https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands).
+
 ## Решение
 
 ### Создание пользователей
