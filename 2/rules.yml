@@ -1,0 +1,5 @@
+groups:
+  - name: api_queries
+    rules:
+    - record: max_num_api_queries_last_15_min
+      expr: max_over_time(sum(rate(prometheus_http_requests_total{code="200", handler=~"/api/v1/.*"}[1m]))[15m:1m]) * 60
