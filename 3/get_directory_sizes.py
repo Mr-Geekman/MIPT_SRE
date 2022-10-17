@@ -11,7 +11,7 @@ DIRECTORIES_TO_CHECK = [
 ]
 
 SAVE_PATH = pathlib.Path(
-    "/var/lib/node_exporter/textfile/directory_sizes.prom"
+    "/opt/prometheus_exporters/textfile/directory_sizes.prom"
 )
 
 

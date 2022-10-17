@@ -48,7 +48,7 @@ ssh sre-course -L 9090:127.0.0.1:9090
 cp ~/MIPT_SRE/3/get_directory_sizes.py  /usr/local/bin/get_directory_sizes
 chmod +x /usr/local/bin/get_directory_sizes 
 ```
-2. Запустим crone:
+2. Через cron будем запускать скрипт каждую минуту:
 ```bash
-*/15 * * * * * root python3 /usr/local/bin/get_directory_sizes
+* * * * * root python3 /usr/local/bin/get_directory_sizes
 ```
