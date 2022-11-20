@@ -15,7 +15,7 @@ ssh sre-course -L 3000:127.0.0.1:3000
 
 ## Решение
 
-1. Установил grafana при помощи deb-пакета по ссылке со [страницы]().
+1. Установил grafana при помощи deb-пакета по ссылке со [страницы](https://grafana.com/grafana/download?edition=oss&platform=linux).
 2. Далее следовал инструкции из `TASK.pdf`.
 3. Настроил конфиг `etc/grafana/grafana.ini`. Чтобы показать какие опции и в каких разделах надо было установить см. `config-sample.ini`.
 4. Построил при помощи Prometheus график для `prometheus_tsdb_head_series`.
