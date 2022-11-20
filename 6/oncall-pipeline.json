@@ -1,0 +1,24 @@
+[
+  {
+    "grok": {
+      "field": "message",
+      "patterns": [
+        "%{IPORHOST:source.ip} %{USER:user.id} %{USER:user.name} \\[%{HTTPDATE:@timestamp}\\] \"%{WORD:http.request.method} %{DATA:url.original} HTTP/%{NUMBER:http.version}\" %{NUMBER:http.response.status_code:int}"
+      ]
+    }
+  },
+  {
+    "date": {
+      "field": "@timestamp",
+      "formats": [
+        "dd/MMM/yyyy:HH:mm:ss Z"
+      ]
+    }
+  },
+  {
+    "geoip": {
+      "field": "source.ip",
+      "target_field": "source.geo"
+    }
+  }
+]

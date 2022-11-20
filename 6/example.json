@@ -1,0 +1,7 @@
+[
+  {
+    "_source": {
+      "message": "Nov 19 00:05:21 sre-seminars-inst36 oncall-dev[378756]: 127.0.0.1 - - [19/Nov/2022:00:05:21 +0000] \"GET /api/v0/teams/team-1/summary HTTP/1.1\" 200 1152 \"-\" \"python-requests/2.28.1\""
+    }
+  }
+]
