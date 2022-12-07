@@ -1,0 +1,18 @@
+groups:
+  - name: OnCallAlerts
+    interval: 1m
+    rules:
+      - alert: OnCallNoContacts
+        expr: oncall_frac_users_without_phone > 0.15
+        for: 5m
+        labels:
+          severity: 'error'
+        annotations:
+          summary: "A big fraction of users doesn't have contacts: {{ $value }}!"
+      - alert: OnCallNoPrimaryRole
+        expr: increase(oncall_primary_role_present_total{type="positive"}[1d]) / on() group_left() increase(oncall_primary_role_present_total{type="total"}[1d]) < 0.98
+        for: 5m
+        labels:
+          severity: 'error'
+        annotations:
+          summary: "Today we don't have primary role in at least one team for {{ $value}} of the time!"
