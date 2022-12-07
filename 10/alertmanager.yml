@@ -1,0 +1,29 @@
+global:
+  resolve_timeout: 3m
+receivers:
+- name: test_alert
+  webhook_configs:
+  - send_resolved: true
+    url: http://127.0.0.1:8080/mattermost/inapp-test-alerts
+- name: telegram
+  telegram_configs:
+  - send_resolved: true
+    api_url: 'https://api.telegram.org'
+    bot_token: 'example'
+    chat_id: 1
+    parse_mode: ''
+route:
+  receiver: telegram
+  repeat_interval: 1m
+  routes:
+  - group_by:
+    - alertname
+    matchers:
+    - alertname="TestAlarm"
+    receiver: test_alert
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
